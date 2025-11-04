@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  },
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/src/server.js",
+    "copy:views": "cpx \"src/views/**/*\" dist/src/views",
+    "copy:public": "cpx \"src/public/**/*\" dist/public",
+    "postbuild": "npm run copy:views && npm run copy:public"
+  }
+}
